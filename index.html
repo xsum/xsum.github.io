@@ -1,0 +1,215 @@
+﻿<!DOCTYPE HTML>
+<html>  
+<head>
+<title>我的编程笔记</title>  
+<style type="text/css">  
+body {  
+margin:0;  
+padding:0;  
+overflow-y:scroll;
+}  
+html, body, #box, #content {  
+height:100%;
+}
+#header {
+margin:auto;
+width:700px;
+height:100px;
+text-align:center;
+background-color:#ccc;
+}
+#box {
+display:table;  
+width:100%;
+margin:0 auto;  
+position:relative;  
+}  
+#box > div {  
+display:table-row;  
+}
+#top, #top_div, #footer {  
+background:#DCDCDC;  
+height:30px;  
+text-align:center;
+}
+#top {  
+z-index:100; 
+}
+#main {  
+display:table-cell; 
+}  
+#content {
+display:table;  
+width:100%; 
+margin:0 auto;  
+position:relative;
+}
+#middle {
+padding:5px;
+background:#F8F8F8;
+width:760px;
+display:table-cell;
+}
+#left, #right {
+padding:5px;
+background:#F5F5F5;
+display:table-cell;
+}
+#portal_left {
+}
+#list_left {
+width:90px;
+margin-left:auto;
+}
+#portal_right {
+width:90px;
+margin-right:auto;
+}
+<!--过渡动画-->
+@keyframes my-animation {
+0% {opacity:0;left:-25px;}
+100% {opacity:1;left:0;}
+}
+@-ms-keyframes my-animation {
+0% {opacity:0;left:-25px;}
+100% {opacity:1;left:0;}
+}
+@-webkit-keyframes my-animation {
+0% {opacity:0;left:-25px;}
+100% {opacity:1;left:0;}
+}
+@-moz-keyframes my-animation {
+0% {opacity:0;left:-25px;}
+100% {opacity:1;left:0;}
+}
+.run-animation {
+position: relative;
+animation: my-animation 0.2s ease-out;
+-ms-animation: my-animation 0.2s ease-out;
+-webkit-animation: my-animation 0.2s ease-out;
+-moz-animation: my-animation 0.2s ease-out;
+}
+<!--区别分辨率-->
+@media screen and (max-width: 600px) { 
+#right {display:none;}
+}
+
+a {text-decoration: none;}
+p {text-indent: 5em;}
+a:link {color: #666}
+a:visited {color: #666}
+a:hover {color: #66CCFF}
+<!--a:active {color: #FF6600}-->
+</style>
+<script type="text/javascript">
+//AJAX加载
+function loadHTMLDoc() {
+	var xmlhttp;
+	if (window.XMLHttpRequest) {
+		xmlhttp = new XMLHttpRequest();
+	} else {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("center").innerHTML = xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("GET", "/ajax/html1.txt", true);
+	xmlhttp.send();
+	document.getElementById('center').style.animation="fadein 1s";
+}
+function loadXMLDoc() {
+	var xmlhttp;
+	if (window.XMLHttpRequest) {
+		xmlhttp = new XMLHttpRequest();
+	} else {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("center").innerHTML = xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("GET", "/ajax/xml1.txt", true);
+	xmlhttp.send();	
+	document.getElementById('center').style.animation="fadein 1s";
+}
+/*导航置顶*/
+window.onscroll = function(){
+	var t = document.documentElement.scrollTop || document.body.scrollTop; 
+	var top = document.getElementById( "top" );
+	if( t >= 100 ) {
+		document.getElementById("top").style.position = "fixed";
+		document.getElementById("top").style.width = "100%";
+		document.getElementById("top").style.top = "0px";
+		document.getElementById("portal_left").style.position = "fixed";
+		document.getElementById("portal_left").style.top = "30px";
+	}
+	else {
+		document.getElementById("top").style.position = "static";
+		document.getElementById("portal_left").style.position = "static";
+	}
+}
+</script>
+<body>
+<div id="box">
+	<div id="header">header</div>
+	<div id="top_div">
+		<div id="top" id="top">top</div>
+	</div>
+	<div id="main">
+		<div id="content">
+			<div id="left">
+				<div id="portal_left">
+					<div id="list_left">
+						<dl>
+							<dt><a href="javascript:void(0);">HTML</a></dt>
+							<dd><a href="javascript:void(0);" onclick="loadHTMLDoc()">语法</a>
+							<dd><a href="javascript:void(0);">实例</a></dd>
+							<dt><a href="javascript:void(0);">CSS</a></dt>
+							<dd><a href="javascript:void(0);">语法</a></dd>
+							<dd><a href="javascript:void(0);">实例</a></dd>
+							<dt><a href="javascript:void(0);">XML</a></dt>
+							<dd><a href="javascript:void(0);" onclick="loadXMLDoc()">语法</a>
+							<dd><a href="javascript:void(0);">实例</a></dd>
+							<dt><a href="javascript:void(0);">JavaScript</a></dt>
+							<dd><a href="javascript:void(0);">语法</a></dd>
+							<dd><a href="javascript:void(0);">实例</a></dd>
+							<dt><a href="javascript:void(0);">AJAX</a></dt>
+							<dd><a href="javascript:void(0);">语法</a></dd>
+							<dd><a href="javascript:void(0);">实例</a></dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+			<div id="middle">
+				<div id="center" class="run-animation">center</div>
+			</div>
+			<div id="right">
+				<div id="portal_right">
+					<dl>
+						<dt><a href="#">123</a></dt>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">footer</div>
+</div>
+<script>
+//重设左边距
+document.getElementById("portal_left").style.width=document.getElementById("left").offsetWidth -10 + "px";
+document.getElementById("left").style.width=document.getElementById("portal_left").offsetWidth + "px";
+//重播 #center CSS动画
+element = document.getElementById("list_left");
+element.addEventListener("click", function(e){
+	e.preventDefault; 
+	element = document.getElementById("center");
+	element.classList.remove("run-animation");
+	element.offsetWidth = element.offsetWidth;
+	element.classList.add("run-animation");
+}, false);
+</script>
+</body> 
+</html>  

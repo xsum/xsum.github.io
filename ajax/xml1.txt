@@ -1,0 +1,68 @@
+﻿<ul>
+<li>所有 XML 元素都须有关闭标签</li>
+<li>XML 标签对大小写敏感</li>
+<li>XML 必须正确地嵌套</li>
+<li>XML 文档必须有根元素</li>
+<li>XML 的属性值须加引号，如果属性值本身包含双引号，那么有必要使用单引号包围它或使用实体引用</li>
+<li>在 XML 中 5 个预定义的实体引用：（在 XML 中，只有字符 "&lt;" 和 "&amp;" 确实是非法的）<table >
+<tbody>
+<tr>
+<td rowspan="1" colspan="1" >&amp;lt;</td>
+<td rowspan="1" colspan="1" >&lt;</td>
+<td rowspan="1" colspan="1" >小于</td>
+</tr>
+
+<tr>
+<td rowspan="1" colspan="1" >&amp;gt;</td>
+<td rowspan="1" colspan="1" >&gt;</td>
+<td rowspan="1" colspan="1" >大于</td>
+</tr>
+
+<tr>
+<td rowspan="1" colspan="1" >&amp;amp;</td>
+<td rowspan="1" colspan="1" >&amp;</td>
+<td rowspan="1" colspan="1" >和号</td>
+</tr>
+
+<tr>
+<td rowspan="1" colspan="1" >&amp;apos;</td>
+<td rowspan="1" colspan="1" >'</td>
+<td rowspan="1" colspan="1" >单引号</td>
+</tr>
+
+<tr>
+<td rowspan="1" colspan="1" >&amp;quot;</td>
+<td rowspan="1" colspan="1" >"</td>
+<td rowspan="1" colspan="1" >引号</td>
+</tr>
+
+</tbody>
+</table>
+
+</li>
+</ul>
+
+<ul>
+<li>XML 中的注释语法与 HTML 的语法很相似：&lt;!-- This is a comment --&gt;</li>
+<li>在 XML 中，空格会被保留</li>
+<li>XML 以 换行符 (LF) 存储换行，非回车符 (CR) </li>
+<li>XML 元素命名规则<br />
+可以含字母、数字以及其他的字符<br />
+名称不能以数字或者标点符号开始<br />
+名称不能以字符 “xml”（或者 XML、Xml）开始<br />
+名称不能包含空格</li>
+<li>使名称具有描述性,使用下划线的名称也很不错,名称应当比较简短<br />
+避免 "-" 字符。如果您按照这样的方式进行命名："first-name"，一些软件会认为你需要提取第一个单词。<br />
+避免 "." 字符。如果您按照这样的方式进行命名："first.name"，一些软件会认为 "name" 是对象 "first" 的属性。<br />
+避免 ":" 字符。冒号会被转换为命名空间来使用</li>
+<li>XML 元素 vs. 属性<br />
+元素和属性可提供相同的信息，但应该尽量避免使用属性，因为<br />
+属性无法包含多重的值（元素可以）<br />
+属性无法描述树结构（元素可以）<br />
+属性不易扩展（为未来的变化）<br />
+属性难以阅读和维护</li>
+<li>针对元数据的 XML 属性<br />
+它起作用的方式与 HTML 中 ID 属性是一样的，ID 仅仅是一个标识符，用于标识不同的便签。它并不是便签数据的组成部分，元数据（有关数据的数据）应当存储为属性，而数据本身应当存储为元素。</li>
+<li>使用 CSS 格式化 XML 文档，&lt;?xml-stylesheet type="text/css" href="cd_catalog.css"?&gt;，把这个 XML 文件链接到 CSS 文件</li>
+<li>使用 CSS 格式化 XML 文档，&lt;?xml-stylesheet type="text/xsl" href="simple.xsl"?&gt;，把这个 XML 文件链接到 XSL 文件</li>
+</ul>
